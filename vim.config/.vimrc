@@ -98,9 +98,32 @@ set showcmd
 "set guifont=Andale\ Mono:h22
 " for linux
 "set guifont=DejaVu\ Sans\ Mono\ 13
+if has("gui_macvim")
+  set guifont=Monaco:h16
+endif
 
 " automatically change the current directory
 "set autochdir
 
 "map <F9> :!perl -Mstrict "%"<cr>
 "map <F8> :!python "%"<cr>
+
+" Turn on word wrapping
+set wrap
+set linebreak
+set nolist
+
+" Moving around through wrapped lines
+vmap <D-j> gj
+vmap <D-k> gk
+vmap <D-4> g$
+vmap <D-6> g^
+vmap <D-0> g^
+nmap <D-j> gj
+nmap <D-k> gk
+nmap <D-4> g$
+nmap <D-6> g^
+nmap <D-0> g^
+
+" Enable md syntax
+au BufRead,BufNewFile *.md set filetype=markdown
