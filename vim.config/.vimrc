@@ -3,16 +3,17 @@
 set nocompatible
 
 " use visual bell instead of beeping
-set vb
+"set vb
 
-" incremental search
+" incremental search. 
+" Vim will start searching when you type the first character of the search string. As you type in more characters, the search is refined
 set incsearch
 
 " no highlight search
-set nohls
+"set nohls
 
 " syntax highlighting
-set bg=light
+"set bg=light
 syntax on
 
 " autoindent
@@ -36,12 +37,12 @@ set showmatch
 set number
 
 " check perl code with :make
-autocmd FileType perl set makeprg=perl\ -c\ %\ $*
-autocmd FileType perl set errorformat=%f:%l:%m
-autocmd FileType perl set autowrite
+"autocmd FileType perl set makeprg=perl\ -c\ %\ $*
+"autocmd FileType perl set errorformat=%f:%l:%m
+"autocmd FileType perl set autowrite
 
 " dont use Q for Ex mode
-map Q :q
+"map Q :q
 
 " make tab in v mode ident code
 "vmap <tab> >gv
@@ -60,46 +61,46 @@ map Q :q
 "vmap _C :s/^#//gi<Enter>
 
 " my perl includes pod
-let perl_include_pod = 1
+"let perl_include_pod = 1
 
 " syntax color complex things like @{${"foo"}}
-let perl_extended_vars = 1
+"let perl_extended_vars = 1
 
 " Tidy selected lines (or entire file) with _t:
-nnoremap <silent> _t :%!perltidy -q<Enter>
-vnoremap <silent> _t :!perltidy -q<Enter>
+"nnoremap <silent> _t :%!perltidy -q<Enter>
+"vnoremap <silent> _t :!perltidy -q<Enter>
 
 " remove toolbar
-set guioptions-=T
+"set guioptions-=T
 
 " show current row and column at bottom screen
 set ruler
 
-set virtualedit=all
+"set virtualedit=all
 
 "map <C-J> <C-W>j<C-W>_
 "map <C-K> <C-W>k<C-W>_
 
 " move between tab
-map <C-L> :tabn<cr>
-map <C-H> :tabp<cr>
+"map <C-L> :tabn<cr>
+"map <C-H> :tabp<cr>
 
 " set minimum window height to 0
-set wmh=0
+"set wmh=0
 
 " display command 
 set showcmd
 
 " scheme and font
-colorscheme wombat
+"colorscheme wombat
 "set guifont=Andale\ Mono:h18
 " for mac os x 
-set guifont=Andale\ Mono:h22
+"set guifont=Andale\ Mono:h22
 " for linux
-set guifont=DejaVu\ Sans\ Mono\ 13
+"set guifont=DejaVu\ Sans\ Mono\ 13
 
 " automatically change the current directory
-set autochdir
+"set autochdir
 
-map <F9> :!perl -Mstrict "%"<cr>
-map <F8> :!python "%"<cr>
+"map <F9> :!perl -Mstrict "%"<cr>
+"map <F8> :!python "%"<cr>
