@@ -6,8 +6,12 @@ function countDownSS() {
 		console.log("SS id " + this.item_id + " duration remaining " + this.duration_remaining);
 		
 		if (this.duration_remaining < 0) {
-	    	console.log("Send Out SS");
-	    	adventurePartySend(false);
+	    	console.log("getBatchProgress");
+	    	getBatchProgress(!1,!1);
+	    	setTimeout(function() { 
+	    		console.log("Send Out SS");
+	    		adventurePartySend(!1); }, 5E3);
+	    		
 	    	return false;
 		}
 	});
@@ -22,4 +26,4 @@ var advfi1 = setInterval(function() {
 		getBatchProgress(!1,!1);
 		iss = 0;
 	}
-}, 10000);
+}, 1E4);
