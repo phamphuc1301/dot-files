@@ -71,7 +71,7 @@ set number
 "vnoremap <silent> _t :!perltidy -q<Enter>
 
 " remove toolbar
-"set guioptions-=T
+set guioptions-=T
 
 " show current row and column at bottom screen
 set ruler
@@ -99,7 +99,11 @@ set showcmd
 " for linux
 "set guifont=DejaVu\ Sans\ Mono\ 13
 if has("gui_macvim")
-  set guifont=Monaco:h16
+	set guifont=Monaco:h16
+endif
+
+if has("win32")
+	set guifont=Consolas:h13
 endif
 
 " automatically change the current directory
