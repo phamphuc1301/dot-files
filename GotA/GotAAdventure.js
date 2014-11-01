@@ -18,6 +18,6 @@ function countDownSS() {
 	console.log("======================================================");
 }
 
-var advfi1 = setInterval(function() {
+var advInterval = setInterval(function() {
 	countDownSS();
 }, 1E4);
