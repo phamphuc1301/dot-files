@@ -2,7 +2,7 @@ var iss = 0;
 
 function countDownSS() {
 	$.each(userContext.previousAdventureParty.ssItem, function() {
-		this.duration_remaining -= 15;
+		this.duration_remaining -= 35;
 		console.log("SS id " + this.item_id + " duration remaining " + this.duration_remaining);
 		
 		if (this.duration_remaining < 0) {
@@ -20,4 +20,4 @@ function countDownSS() {
 
 var advInterval = setInterval(function() {
 	countDownSS();
-}, 1E4);
+}, 3E4);
