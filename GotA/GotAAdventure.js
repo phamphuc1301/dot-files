@@ -25,7 +25,7 @@ function breadCountDown(a) {
 	if (sept.build_remaining < 0) {
 		a && console.log("doFinishProduction");
 		doFinishProduction(sept.item_id);
-		if (sept.build_remaining == null) {
+		if (sept.build_remaining == null || sept.build_remaining <= 0) {
 			a && console.log("doProduction");
 			doProduction('fresh_baked_bread','sept',undefined,undefined,'sept_fresh_baked_bread_recipe');
 		}
