@@ -30,7 +30,7 @@ function breadCountDown(a) {
 			doProduction('fresh_baked_bread','sept',undefined,undefined,'sept_fresh_baked_bread_recipe');
 		}
 	}
-	a && console.log("breadCountDown DONE");
+	a && console.log("======================================================");
 }
 
 var advInterval = setInterval(function() {
