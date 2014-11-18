@@ -22,7 +22,7 @@ function breadCountDown(a) {
 	sept.build_remaining -= 35;
 	a && console.log("Bread id " + sept.item_id + " duration remaining " + sept.build_remaining);
 	
-	if (sept.build_remaining < 0) {
+	if (sept.build_remaining == null || sept.build_remaining <= 0) {
 		a && console.log("doFinishProduction");
 		doFinishProduction(sept.item_id);
 		if (sept.build_remaining == null || sept.build_remaining <= 0) {
