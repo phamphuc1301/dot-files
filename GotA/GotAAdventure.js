@@ -27,7 +27,12 @@ function breadCountDown(a) {
 		doFinishProduction(sept.item_id);
 		if (isNaN(sept.build_remaining) || sept.build_remaining <= 0) {
 			a && console.log("doProduction");
-			doProduction('fresh_baked_bread','sept',undefined,undefined,'sept_fresh_baked_bread_recipe');
+			$.ajax({
+				url: '/play/set_production/fresh_baked_bread?producer_symbol=sept&quantity=1&recipe_symbol=sept_fresh_baked_bread_recipe',
+				success: function(data) {
+					a && console.log("doProduction Done");
+				}
+			});
 		}
 	}
 	a && console.log("======================================================");
