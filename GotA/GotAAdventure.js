@@ -30,6 +30,7 @@ function breadCountDown(a) {
 			$.ajax({
 				url: '/play/set_production/fresh_baked_bread?producer_symbol=sept&quantity=1&recipe_symbol=sept_fresh_baked_bread_recipe',
 				success: function(data) {
+					doFinishProduction(sept.item_id);
 					a && console.log("doProduction Done");
 				}
 			});
