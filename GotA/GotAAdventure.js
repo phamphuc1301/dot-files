@@ -40,6 +40,6 @@ function breadCountDown(a) {
 }
 
 var advInterval = setInterval(function() {
-	countDownSS(false);
+	countDownSS(true);
 	breadCountDown(true);
 }, 3E4);
