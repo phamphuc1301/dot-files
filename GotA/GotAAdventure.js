@@ -17,20 +17,34 @@ function countDownSS(a) {
 	a && console.log("======================================================");
 }
 
-function breadCountDown(a) {
-	var sept = userContext.buildingsData[6];
-	sept.build_remaining -= 35;
-	a && console.log("Bread id " + sept.item_id + " duration remaining " + sept.build_remaining);
+function productionCountDown(b, a) {
+	if (!b) {
+		return;
+	}
 	
-	if (isNaN(sept.build_remaining) || sept.build_remaining <= 0) {
+	var building = userContext.buildingsData[b];
+	building.build_remaining -= 35;
+	a && console.log("Bread id " + building.item_id + " duration remaining " + building.build_remaining);
+	
+	if (isNaN(building.build_remaining) || building.build_remaining <= 0) {
 		a && console.log("doFinishProduction");
-		doFinishProduction(sept.item_id);
-		if (isNaN(sept.build_remaining) || sept.build_remaining <= 0) {
+		doFinishProduction(building.item_id);
+		if (isNaN(building.build_remaining) || building.build_remaining <= 0) {
 			a && console.log("doProduction");
+			var url = '';
+			if (b == 6) {
+				url = '/play/set_production/fresh_baked_bread?producer_symbol=sept&quantity=1&recipe_symbol=sept_fresh_baked_bread_recipe';
+			} else if (b == 7) {
+				url = '/play/set_production/mead?producer_symbol=godswood&quantity=1&recipe_symbol=godswood_mead_recipe'
+			} else {
+				console.log("Building number not correct");
+				return;
+			}
+			
 			$.ajax({
-				url: '/play/set_production/fresh_baked_bread?producer_symbol=sept&quantity=1&recipe_symbol=sept_fresh_baked_bread_recipe',
+				url: url,
 				success: function(data) {
-					doFinishProduction(sept.item_id);
+					doFinishProduction(building.item_id);
 					a && console.log("doProduction Done");
 				}
 			});
@@ -41,5 +55,6 @@ function breadCountDown(a) {
 
 var advInterval = setInterval(function() {
 	countDownSS(true);
-	breadCountDown(true);
+	productionCountDown(6, true);
+	productionCountDown(7, true);
 }, 3E4);
