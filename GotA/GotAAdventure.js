@@ -24,7 +24,7 @@ function productionCountDown(b, a) {
 	
 	var building = userContext.buildingsData[b];
 	building.build_remaining -= 35;
-	a && console.log("Bread id " + building.item_id + " duration remaining " + building.build_remaining);
+	a && console.log("Item id " + building.item_id + " duration remaining " + building.build_remaining);
 	
 	if (isNaN(building.build_remaining) || building.build_remaining <= 0) {
 		a && console.log("doFinishProduction");
