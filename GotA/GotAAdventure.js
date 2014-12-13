@@ -36,6 +36,8 @@ function productionCountDown(b, a) {
 				url = '/play/set_production/fresh_baked_bread?producer_symbol=sept&quantity=1&recipe_symbol=sept_fresh_baked_bread_recipe';
 			} else if (b == 7) {
 				url = '/play/set_production/mead?producer_symbol=godswood&quantity=1&recipe_symbol=godswood_mead_recipe'
+			} else if (b == 8) {
+				url = 'play/set_production/nettle_poultice?producer_symbol=rhllor_temple&quantity=1&recipe_symbol=rhllor_temple_nettle_poultice';
 			} else {
 				console.log("Building number not correct");
 				return;
@@ -57,4 +59,5 @@ var advInterval = setInterval(function() {
 	countDownSS(true);
 	productionCountDown(6, true);
 	productionCountDown(7, true);
+	productionCountDown(8, true);
 }, 3E4);
