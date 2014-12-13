@@ -2,14 +2,19 @@ var iss = 0;
 
 function countDownSS(a) {
 	$.each(userContext.previousAdventureParty.ssItem, function() {
-		this.duration_remaining -= 35;
-		a && console.log("SS id " + this.item_id + " duration remaining " + this.duration_remaining);
-		if (this.duration_remaining < 0) {
+		var currentSS = this;
+		currentSS.duration_remaining -= 35;
+		a && console.log("SS id " + currentSS.item_id + " duration remaining " + currentSS.duration_remaining);
+		if (currentSS.duration_remaining < 0) {
 	    	a && console.log("getBatchProgress");
 	    	getBatchProgress(!1,!1);
+	    	
 	    	setTimeout(function() { 
-	    		a && console.log("Send Out SS");
-	    		adventurePartySend(!1); }, 5E3);
+	    		if (currentSS.duration_remaining < 0) {
+	    			a && console.log("Send Out SS");
+	    			adventurePartySend(!1);
+	    		}
+	    	}, 5E3);
 	    		
 	    	return false;
 		}
@@ -33,7 +38,7 @@ function productionCountDown(b, a) {
 			a && console.log("doProduction");
 			var url = '';
 			if (b == 3) {
-				url = '/play/set_production/grains?producer_symbol=bakery&quantity=6&recipe_symbol=village_center_grains_recipe';
+				url = '/play/set_production/grains?producer_symbol=bakery&quantity=1&recipe_symbol=village_center_grains_recipe';
 			} else if (b == 6) {
 				url = '/play/set_production/fresh_baked_bread?producer_symbol=sept&quantity=1&recipe_symbol=sept_fresh_baked_bread_recipe';
 			} else if (b == 7) {
