@@ -1,10 +1,9 @@
-var iss = 0;
-
 function countDownSS(a) {
 	$.each(userContext.previousAdventureParty.ssItem, function() {
 		var currentSS = this;
 		currentSS.duration_remaining -= 35;
 		a && console.log("SS id " + currentSS.item_id + " duration remaining " + currentSS.duration_remaining);
+		
 		if (currentSS.duration_remaining < 0) {
 	    	a && console.log("getBatchProgress");
 	    	getBatchProgress(!1,!1);
