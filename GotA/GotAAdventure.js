@@ -32,7 +32,9 @@ function productionCountDown(b, a) {
 		if (isNaN(building.build_remaining) || building.build_remaining <= 0) {
 			a && console.log("doProduction");
 			var url = '';
-			if (b == 6) {
+			if (b == 3) {
+				url = '/play/set_production/grains?producer_symbol=bakery&quantity=6&recipe_symbol=village_center_grains_recipe';
+			} else if (b == 6) {
 				url = '/play/set_production/fresh_baked_bread?producer_symbol=sept&quantity=1&recipe_symbol=sept_fresh_baked_bread_recipe';
 			} else if (b == 7) {
 				url = '/play/set_production/mead?producer_symbol=godswood&quantity=1&recipe_symbol=godswood_mead_recipe'
@@ -57,6 +59,7 @@ function productionCountDown(b, a) {
 
 var advInterval = setInterval(function() {
 	countDownSS(true);
+	productionCountDown(3, true);
 	productionCountDown(6, true);
 	productionCountDown(7, true);
 	productionCountDown(8, true);
