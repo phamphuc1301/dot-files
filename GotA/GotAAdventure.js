@@ -1,17 +1,20 @@
 function countDownSS(a) {
 	$.each(userContext.previousAdventureParty.ssItem, function() {
-		var currentSS = this;
-		currentSS.duration_remaining -= 35;
-		a && console.log("SS id " + currentSS.item_id + " duration remaining " + currentSS.duration_remaining);
+		this.duration_remaining -= 35;
+		a && console.log("SS id " + this.item_id + " duration remaining " + this.duration_remaining);
 		
-		if (currentSS.duration_remaining < 0) {
+		if (this.duration_remaining < 0) {
 	    	a && console.log("getBatchProgress");
 	    	getBatchProgress(!1,!1);
 	    	
-	    	setTimeout(function() { 
-	    		if (currentSS.duration_remaining < 0) {
-	    			a && console.log("Send Out SS");
-	    			adventurePartySend(!1);
+	    	setTimeout(function() {
+	    		$.each(userContext.previousAdventureParty.ssItem, function() {
+	    			if (this.duration_remaining < 0) {
+	    				a && console.log("Send Out SS");
+	    				adventurePartySend(!1);
+	    				
+	    				return false;
+	    			}
 	    		}
 	    	}, 5E3);
 	    		
