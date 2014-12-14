@@ -15,7 +15,7 @@ function countDownSS(a) {
 	    				
 	    				return false;
 	    			}
-	    		}
+	    		});
 	    	}, 5E3);
 	    		
 	    	return false;
