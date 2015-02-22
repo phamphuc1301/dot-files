@@ -47,6 +47,10 @@ function productionCountDown(b, a) {
 				url = '/play/set_production/mead?producer_symbol=godswood&quantity=1&recipe_symbol=godswood_mead_recipe'
 			} else if (b == 8) {
 				url = 'play/set_production/nettle_poultice?producer_symbol=rhllor_temple&quantity=1&recipe_symbol=rhllor_temple_nettle_poultice';
+			} else if (b == 22) {
+				url = 'play/set_production/shortbow?producer_symbol=practice_yard&quantity=1&recipe_symbol=practice_yard_shortbow_recipe';
+			} else if (b == 25) {
+				url = 'play/set_production/light_crossbow?producer_symbol=watchtower&quantity=1&recipe_symbol=watchtower_light_crossbow_recipe';				
 			} else {
 				console.log("Building number not correct");
 				return;
@@ -70,4 +74,6 @@ var advInterval = setInterval(function() {
 	productionCountDown(6, true);
 	productionCountDown(7, true);
 	productionCountDown(8, true);
+	productionCountDown(22, true);
+	productionCountDown(25, true);
 }, 3E4);
