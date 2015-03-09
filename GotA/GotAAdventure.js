@@ -48,9 +48,11 @@ function productionCountDown(b, a) {
 			} else if (b == 8) {
 				url = 'play/set_production/nettle_poultice?producer_symbol=rhllor_temple&quantity=1&recipe_symbol=rhllor_temple_nettle_poultice';
 			} else if (b == 22) {
-				url = 'play/set_production/shortbow?producer_symbol=practice_yard&quantity=1&recipe_symbol=practice_yard_shortbow_recipe';
+				//url = 'play/set_production/shortbow?producer_symbol=practice_yard&quantity=1&recipe_symbol=practice_yard_shortbow_recipe';
+				url = 'play/set_production/composite_bow?producer_symbol=archery_butts&quantity=1&recipe_symbol=practice_yard_composite_bow_recipe';
 			} else if (b == 25) {
-				url = 'play/set_production/light_crossbow?producer_symbol=watchtower&quantity=1&recipe_symbol=watchtower_light_crossbow_recipe';				
+				//url = 'play/set_production/light_crossbow?producer_symbol=watchtower&quantity=1&recipe_symbol=watchtower_light_crossbow_recipe';
+				url = 'play/set_production/heavy_crossbow?producer_symbol=third_story&quantity=1&recipe_symbol=watchtower_heavy_crossbow_recipe'
 			} else {
 				console.log("Building number not correct");
 				return;
