@@ -5,8 +5,8 @@
 
 # How to do it?
 * List all device with this command
-`xinput --list --short`
-output:
+```xinput --list --short```
+    *output:
 ```
 somallg@407LW7P567:~$ xinput --list --short
 ⎡ Virtual core pointer                    	id=2	[master pointer  (3)]
@@ -25,8 +25,8 @@ somallg@407LW7P567:~$ xinput --list --short
 ```
 * Here my pointing device is PixArt USB Optical Mouse and SynPS/2 Synaptics TouchPad. So i gonna change the speed of PixArt USB Optical Mouse
 * List device Properties
-`xinput --list-props "PixArt USB Optical Mouse" | grep Accel`
-output:
+```xinput --list-props "PixArt USB Optical Mouse" | grep Accel```
+    * output:
 ```
 	Device Accel Profile (258):	0
 	Device Accel Constant Deceleration (259):	1.000000
@@ -34,4 +34,4 @@ output:
 	Device Accel Velocity Scaling (261):	10.000000
 ```
 * Change mouse speed with this command:
-`xinput --set-prop "PixArt USB Optical Mouse" "Device Accel Constant Deceleration" 3`
+````xinput --set-prop "PixArt USB Optical Mouse" "Device Accel Constant Deceleration" 3```
