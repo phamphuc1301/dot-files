@@ -81,7 +81,7 @@ var GotABotScope = {
             }
         });
     }
-}
+};
 
 var advInterval = setInterval(function () {
     GotABotScope.countDownSS(true);
@@ -142,7 +142,7 @@ var itemInterval = setInterval(function () {
     $.each(items, function() {
         GotABotScope.productionCountDown(true, this[0], this[1]);
     });
-}, 6E4);
+}, 3E5);
 
 var barterInterval = setInterval(function () {
     // Ramza
@@ -152,4 +152,4 @@ var barterInterval = setInterval(function () {
     $.each(ssItems, function() {
         GotABotScope.barterCountDown(target, this);
     });
-}, 6E4);
+}, 6E5);
