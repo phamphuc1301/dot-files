@@ -74,10 +74,7 @@ var GotABotScope = {
         $.ajax({
             url: url,
             success: function (data) {
-                console.log("Barter done");
-            },
-            error: function(data) {
-                console.log("SS " + b + " " + data.error);
+                data.error ? console.log("SS id=" + b + " " + data.error) : console.log("Barter done");
             }
         });
     }
