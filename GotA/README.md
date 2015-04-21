@@ -31,6 +31,7 @@
     * Tương tự click vào mặt SS rồi Inspect Element
     ![ss-1](images/ss-1.png)
     * Tìm `item_min_268700767`
+    * ![ss-1](images/ss-2.png)
     * 268700767 là SS id
     * Thêm SS id vào biến `ssItems = [];`
     * Vd: ssItems = [268700767, 268700768];
