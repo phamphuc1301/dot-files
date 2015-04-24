@@ -1,4 +1,4 @@
-var GotABotScope = {
+var GotAScope = {
 
     cache: {},
 
@@ -86,7 +86,7 @@ var GotABotScope = {
 };
 
 var advInterval = setInterval(function () {
-    GotABotScope.countDownSS(true);
+    GotAScope.countDownSS(true);
 }, 6E4);
 
 var itemInterval = setInterval(function () {
@@ -143,7 +143,7 @@ var itemInterval = setInterval(function () {
     ];
 
     $.each(items, function() {
-        GotABotScope.productionCountDown(true, this[0], this[1]);
+        GotAScope.productionCountDown(true, this[0], this[1]);
     });
 }, 3E5);
 
@@ -154,6 +154,6 @@ var barterInterval = setInterval(function () {
     var ssItems = [];
 
     $.each(ssItems, function() {
-        GotABotScope.barterCountDown(target, this);
+        GotAScope.barterCountDown(target, this);
     });
 }, 6E5);
