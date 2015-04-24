@@ -69,6 +69,11 @@ var GotABotScope = {
     },
 
     barterCountDown: function(a, b) {
+        if (!a) {
+            console.log("Add target id first");
+            return;
+        }
+        
         var url = "/pvps/create?pvp%5Btarget_id%5D=" + a + "&pvp%5Bsworn_sword_id%5D=" + b + "&pvp%5Bpvp_action_symbol%5D=barter";
         console.log("Barter url " + url);
         $.ajax({
@@ -143,8 +148,9 @@ var itemInterval = setInterval(function () {
 }, 3E5);
 
 var barterInterval = setInterval(function () {
-    // Ramza
-    var target = 25356743;
+    // add target Id here
+    var target = 0;
+    // add SS id here
     var ssItems = [];
 
     $.each(ssItems, function() {
