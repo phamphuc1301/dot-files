@@ -1,10 +1,21 @@
 var GotAScope = {
 
     cache: {},
-
+    // interval in milliseconds to resend adventure party
+    // 6E4 = 60.000 miliseconds = 60 seconds = 1 minute 
+    advInterval: 6E4,
+    // interval in milliseconds to rebuild item
+    // 3E5 = 300.000 milliseconds = 300 seconds = 5 minutes
+    itemInterval: 3E5,
+    // interval in milliseconds to rebarter
+    // 6E5 = 600.000 milliseconds = 600 seconds = 10 minutes
+    barterInterval: 6E5,
+    
     countDownSS: function (a) {
+        var advInterval = this.advInterval / 1E3;
+        advInterval += advInterval / 10;
         $.each(userContext.previousAdventureParty.ssItem, function () {
-            this.duration_remaining -= 65;
+            this.duration_remaining -= advInterval;
             a && console.log("SS id " + this.item_id + " duration remaining " + this.duration_remaining);
 
             if (this.duration_remaining <= 0) {
@@ -34,7 +45,9 @@ var GotAScope = {
         }
 
         var building = userContext.buildingsData[b];
-        building.build_remaining -= 350;
+        var itemInterval = this.itemInterval / 1E3;
+        itemInterval += itemInterval / 10;
+        building.build_remaining -= itemInterval;
         a && console.log("Item id " + building.item_id + " building " + building.symbol + " duration remaining " + building.build_remaining);
 
         if (isNaN(building.build_remaining) || building.build_remaining <= 0) {
@@ -87,7 +100,7 @@ var GotAScope = {
 
 var advInterval = setInterval(function () {
     GotAScope.countDownSS(true);
-}, 6E4);
+}, GotAScope.advInterval);
 
 var itemInterval = setInterval(function () {
     var items = [
@@ -101,7 +114,6 @@ var itemInterval = setInterval(function () {
         [5, 0],
         // sept => b = 6, bread => c = 0
         [6, 0],
-
         // godswood => b = 7, mead => c = 0
         [7, 0],
         // R'hllor => b = 8, flickering fire  => c = 3
@@ -128,24 +140,26 @@ var itemInterval = setInterval(function () {
         [18, 0],
         // Feast => b = 19, c = 0
         [19, 0],
-        // Siege works => b = 20, c = 0
-        [20, 0],
-        // Yard shortbow => b = 21, c = 0
+        // Great Hall => b = 20, c = 0
+        // [20, 0],
+        // Siege works => b = 21, c = 0
         [21, 0],
-        // shanty => b = 22
+        // Yard shortbow => b = 22, c = 0
+        [22, 0],
+        // shanty => b = 23, no item
 
-        // warehouse => b = 23, scroll => c = 0
-        [23, 0],
-        // armory => b = 24, wood => c = 2
-        [24, 2],
-        // watch tower => b = 25, tunic => c = 0
-        [25, 0]
+        // warehouse => b = 24, scroll => c = 0
+        [24, 0],
+        // armory => b = 25, wood => c = 2
+        [25, 2],
+        // watch tower => b = 26, tunic => c = 0
+        [26, 0]
     ];
 
     $.each(items, function() {
         GotAScope.productionCountDown(true, this[0], this[1]);
     });
-}, 3E5);
+}, GotAScope.itemInterval);
 
 var barterInterval = setInterval(function () {
     // add target Id here
@@ -156,4 +170,4 @@ var barterInterval = setInterval(function () {
     $.each(ssItems, function() {
         GotAScope.barterCountDown(target, this);
     });
-}, 6E5);
+}, GotAScope.barterInterval);
