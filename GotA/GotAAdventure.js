@@ -4,7 +4,7 @@ var GotAScope = {
 
     countDownSS: function (a) {
         $.each(userContext.previousAdventureParty.ssItem, function () {
-            this.duration_remaining -= 35;
+            this.duration_remaining -= 65;
             a && console.log("SS id " + this.item_id + " duration remaining " + this.duration_remaining);
 
             if (this.duration_remaining <= 0) {
@@ -34,7 +34,7 @@ var GotAScope = {
         }
 
         var building = userContext.buildingsData[b];
-        building.build_remaining -= 65;
+        building.build_remaining -= 350;
         a && console.log("Item id " + building.item_id + " building " + building.symbol + " duration remaining " + building.build_remaining);
 
         if (isNaN(building.build_remaining) || building.build_remaining <= 0) {
