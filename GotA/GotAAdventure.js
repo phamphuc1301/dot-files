@@ -34,7 +34,7 @@ var GotAScope = {
         }
 
         var building = userContext.buildingsData[b];
-        building.build_remaining -= 35;
+        building.build_remaining -= 65;
         a && console.log("Item id " + building.item_id + " building " + building.symbol + " duration remaining " + building.build_remaining);
 
         if (isNaN(building.build_remaining) || building.build_remaining <= 0) {
