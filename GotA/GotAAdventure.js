@@ -141,7 +141,7 @@ var itemInterval = setInterval(function () {
         // Feast => b = 19, c = 0
         [19, 0],
         // Great Hall => b = 20, c = 0
-        // [20, 0],
+        [20, 0],
         // Siege works => b = 21, c = 0
         [21, 0],
         // Yard shortbow => b = 22, c = 0
