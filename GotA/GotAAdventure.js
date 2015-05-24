@@ -161,7 +161,7 @@ var itemInterval = setInterval(function () {
         var b = this[1];
         setTimeout(function() {
             GotAScope.productionCountDown(true, a, b);
-        });
+        }, 1E3);
     });
 }, GotAScope.itemInterval);
 
