@@ -157,7 +157,11 @@ var itemInterval = setInterval(function () {
     ];
 
     $.each(items, function() {
-        GotAScope.productionCountDown(true, this[0], this[1]);
+        var a = this[0];
+        var b = this[1];
+        setTimeout(function() {
+            GotAScope.productionCountDown(true, a, b);
+        });
     });
 }, GotAScope.itemInterval);
 
