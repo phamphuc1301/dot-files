@@ -62,7 +62,7 @@ windows:
   - mongodb:
       layout: even-horizontal
       panes:
-        - cd $HOME/mongodb; mongod --replSet s0 --logpath "s0-r0.log" --dbpath /data/shard0/rs0 --port 37017 --fork --shardsvr --smallfiles; mongod --replSet s0 --logpath "s0-r1.log" --dbpath /data/shard0/rs1 --port 37018 --fork --shardsvr --smallfiles; mongod --replSet s0 --logpath "s0-r2.log" --dbpath /data/shard0/rs2 --port 37019 --fork --shardsvr --smallfiles; cd /home/somallg/Setup/elasticsearch-1.2.2; bin/elasticsearch
+        - cd $HOME/mongodb; killall mongod; mongod --replSet s0 --logpath "s0-r0.log" --dbpath /data/shard0/rs0 --port 37017 --fork --shardsvr --smallfiles; mongod --replSet s0 --logpath "s0-r1.log" --dbpath /data/shard0/rs1 --port 37018 --fork --shardsvr --smallfiles; mongod --replSet s0 --logpath "s0-r2.log" --dbpath /data/shard0/rs2 --port 37019 --fork --shardsvr --smallfiles; cd /home/somallg/Setup/elasticsearch-1.2.2; bin/elasticsearch
         - cd
   - bash:
       layout: even-horizontal
