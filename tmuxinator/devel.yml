@@ -1,0 +1,72 @@
+# ~/.tmuxinator/devel.yml
+
+name: devel
+root: ~/
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: logs
+
+# Controls whether the tmux session should be attached to automatically. Defaults to true.
+# attach: false
+
+# Runs after everything. Use it to attach to tmux with custom options etc.
+# post: tmux -CC attach -t devel
+
+windows:
+  - tomcat:
+      layout: even-horizontal
+      panes:
+        - cd $CLEAN_TOMCAT; bin/catalina.sh run
+        - cd $CLEAN_TOMCAT; tail -100f logs/serviceplus.log
+  - webapp:
+      layout: even-horizontal
+      panes:
+        - cd $WEBAPP; play deps --sync; play run
+        - cd $WEBAPP; tail -100f account-webapp.log
+  - backoffice:
+      layout: even-horizontal
+      panes:
+        - cd $BACKOFFICE; play deps --sync; play run
+        - cd $BACKOFFICE; tail -100f backoffice.log
+  - ripple:
+      layout: even-horizontal
+      panes:
+        - cd $TRUNK; cd $RIPPLE; play deps --sync; play run
+        - cd $TRUNK; cd $RIPPLE; tail -100f ripple.log
+  - haskell:
+      layout: even-horizontal
+      panes:
+        - vim
+        - ghci
+  - gamejs:
+      layout: even-horizontal
+      panes:
+        - cd $HOME/openshift/gamejs; code .
+        - cd $HOME/openshift/gamejs;
+        - cd $HOME/openshift/gamejs;
+  - mongodb:
+      layout: even-horizontal
+      panes:
+        - mongod --replSet s0 --logpath "s0-r0.log" --dbpath /data/shard0/rs0 --port 37017 --fork --shardsvr --smallfiles; mongod --replSet s0 --logpath "s0-r1.log" --dbpath /data/shard0/rs1 --port 37018 --fork --shardsvr --smallfiles; mongod --replSet s0 --logpath "s0-r2.log" --dbpath /data/shard0/rs2 --port 37019 --fork --shardsvr --smallfiles; cd /home/somallg/Setup/elasticsearch-1.2.2; bin/elasticsearch
+        - cd
+  - bash:
+      layout: even-horizontal
+      panes:
+        - skype --secondary
+        - skype --secondary
+        - idea
