@@ -115,56 +115,98 @@ var GotAScope = (function() {
 
     var itemInterval = setInterval(function () {
         var items = [
-            // smith => b = 2, short sword => c = 1
+            // smithy => b = 2, short sword => c = 1
             [2, 1],
-            // village => b = 3, grains => c = 9
+            
+            // village_center => b = 3, grains => c = 9
             [3, 9],
-            // embassy => b = 4, linen => c = 2
+            
+            // market => b = 4, trader => c = 0
             [4, 2],
-            // market => b = 5, trander => c = 0
+            
+            // embassy => b = 5, linen => c = 2
             [5, 0],
+            
             // sept => b = 6, bread => c = 0
             [6, 0],
+            
             // godswood => b = 7, mead => c = 0
             [7, 0],
-            // R'hllor => b = 8, flickering fire  => c = 3
+            
+            // rhllor_temple => b = 8, flickering fire  => c = 3
             [8, 3],
-            // Holdfast => b = 9, doublet => c = 0
+            
+            // workshop => b = 9, c = 1
             [9, 0],
-            // Workshop dirt => b = 10, c = 1
+            
+            // holdfast => b = 10, doublet => c = 0
             [10, 1],
-            // Treasury = vellum scroll => b = 11, c = 0
+            
+            // treasury => b = 11, c = 0
             [11, 0],
-            // Mine => b = 12, Ore => c = 0
+            
+            // hunting_lodge => b = 12, c = 0
             [12, 0],
-            // Reliquary => b = 13, c = 0
+            
+            // arbor => b = 13, c = 0
             [13, 0],
-            // Arbor => b = 14, c = 0
+            
+            // glasshouse => b = 14, c = 0
             [14, 0],
-            // Glasshouse => b = 15, c = 0
+            
+            // feast => b = 15, c = 0
             [15, 0],
-            // Fishery => b = 16, c = 0
+            
+            // fishery => b = 16, c = 0
             [16, 0],
-            // Hunting lodge => b = 17, c = 0
+            
+            // reliquary => b = 17, c = 0
             [17, 0],
-            // Shipyard => b = 18, c = 0
+            
+            // shipyard => b = 18, c = 0
             [18, 0],
-            // Feast => b = 19, c = 0
+            
+            // mine => b = 19, c = 0
             [19, 0],
-            // Great Hall => b = 20, c = 0
+            
+            // great_hall => b = 20, c = 0
             [20, 0],
-            // Siege works => b = 21, c = 0
+            
+            // siege_works => b = 21, c = 0
             [21, 0],
-            // Yard shortbow => b = 22, c = 0
+            
+            // practice_yard => b = 22, c = 0
             [22, 0],
-            // shanty => b = 23, no item
-
-            // warehouse => b = 24, scroll => c = 0
+            
+            // warehouse => b = 23, scroll => c = 0
+            [23, 0],
+            
+            // shanty => b = 24, c = 0
             [24, 0],
+            
             // armory => b = 25, wood => c = 2
             [25, 2],
-            // watch tower => b = 26, tunic => c = 0
-            [26, 0]
+            
+            // artisan => b = 26, c = 0
+            [26, 0],
+            
+            // watchtower => b = 27, c = 0
+            [27, 0],
+            
+            // stables => b = 28
+            [28, 0],
+            
+            // tourney_area, b = 29
+            [29, 0],
+            
+            // alchemist_guild, b = 30
+            [30, 0],
+            
+            // dragon_pit, b = 31
+            [31, 0],
+            
+            // grand_force, b = 32
+            [32, 0]
         ];
 
         items.forEach(function(item) {
