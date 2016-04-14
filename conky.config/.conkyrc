@@ -1,6 +1,6 @@
 # Use Xft?
 use_xft yes
-xftfont Droid Sans:size=11
+xftfont Droid Sans:size=12
 xftalpha 0.8
 text_buffer_size 2048
 
@@ -16,14 +16,14 @@ own_window yes
 own_window_transparent yes
 own_window_type override
 #own_window_type panel
-#own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 
 # Use double buffering (reduces flicker, may not work for everyone)
 double_buffer yes
 
 # Minimum size of text area
-minimum_size 182 0
-maximum_width 232
+#minimum_size 182 0
+#maximum_width 320
 
 # Draw shades?
 draw_shades no
@@ -38,7 +38,7 @@ draw_borders no
 stippled_borders 0
 
 # border margins
-border_margin 5
+# border_margin 5
 
 # border width
 border_width 1
@@ -59,9 +59,9 @@ lua_load ~/.draw_bg.lua
 lua_draw_hook_pre draw_bg
 
 TEXT
-SYSTEM ${hr 2} 
-${goto 6}${voffset 6}${font OpenLogos:size=32}o${font}${goto 36}${voffset -18}${pre_exec cat /etc/issue.net | head -n 1} $machine
-${goto 36}Kernel: ${kernel}  
+SYSTEM ${hr 2}
+${goto 4}${voffset 6}${font OpenLogos:size=32}J${font}${goto 36}${voffset -18}${pre_exec cat /etc/issue.net | head -n 1} $machine
+${goto 36}Kernel: ${kernel}
 ${hr 2}
 
 ${goto 6}${font StyleBats:size=16}A${font}${voffset -4}${goto 32}CPU0: ${cpu cpu0}% ${alignr}${cpubar cpu0 8,100}
@@ -69,13 +69,15 @@ ${goto 6}${voffset 4}${font StyleBats:size=16}A${font}${voffset -4}${goto 32}CPU
 ${goto 6}${voffset 4}${font StyleBats:size=16}A${font}${voffset -4}${goto 32}CPU2: ${cpu cpu1}% ${alignr}${cpubar cpu2 8,100}
 ${goto 6}${voffset 4}${font StyleBats:size=16}A${font}${voffset -4}${goto 32}CPU3: ${cpu cpu1}% ${alignr}${cpubar cpu3 8,100}
 ${goto 6}${voffset 4}${font StyleBats:size=16}g${font}${voffset -4}${goto 32}RAM: ${mem} ${alignr}${membar 8,100}
-${goto 6}${voffset 4}${font StyleBats:size=16}x${font}${voffset -4}${goto 32}DISK: ${diskio}${alignr}${diskiograph 8,100 F57900 FCAF3E} 
+${goto 6}${voffset 4}${font StyleBats:size=16}x${font}${voffset -4}${goto 32}DISK: ${diskio}${alignr}${diskiograph 8,100 F57900 FCAF3E}
 ${goto 6}${voffset 4}${font StyleBats:size=16}j${font}${voffset -4}${goto 32}SWAP: $swapperc% ${alignr}${swapbar 8,100}
-${goto 6}${voffset 4}${font Devil inside:size=16}1${font}${voffset -4}${goto 32}CPU0 Temp: ${alignr}${color #FCAF3E}${exec sensors | grep 'Core 0' | cut -c15-16}°C$color
-${goto 6}${voffset 4}${font Devil inside:size=16}1${font}${voffset -4}${goto 32}CPU1 Temp: ${alignr}${color #FCAF3E}${exec sensors | grep 'Core 1' | cut -c15-16}°C$color
-${goto 5}${voffset 4}${font Devil inside:size=16}x${font}${voffset -4}${goto 32}Mother Temp: ${alignr}${color #FCAF3E}${exec sensors | grep 'temp3' | cut -c15-16}°C$color
+${goto 6}${voffset 4}${font Devil inside:size=16}1${font}${voffset -4}${goto 32}CPU0 Temp: ${alignr}${color #FCAF3E}${exec sensors | grep 'Core 0' | cut -c18-19}°C$color
+${goto 6}${voffset 4}${font Devil inside:size=16}1${font}${voffset -4}${goto 32}CPU1 Temp: ${alignr}${color #FCAF3E}${exec sensors | grep 'Core 1' | cut -c18-19}°C$color
+${goto 6}${voffset 4}${font Devil inside:size=16}1${font}${voffset -4}${goto 32}CPU2 Temp: ${alignr}${color #FCAF3E}${exec sensors | grep 'Core 2' | cut -c18-19}°C$color
+${goto 6}${voffset 4}${font Devil inside:size=16}1${font}${voffset -4}${goto 32}CPU3 Temp: ${alignr}${color #FCAF3E}${exec sensors | grep 'Core 3' | cut -c18-19}°C$color
+#${goto 5}${voffset 4}${font Devil inside:size=16}x${font}${voffset -4}${goto 32}Mother Temp: ${alignr}${color #FCAF3E}${exec sensors | grep 'temp3' | cut -c15-16}°C$color
 ${goto 4.5}${voffset 2}${font Poky:size=15}y${font}${voffset -6}${goto 32}HD Temp:${alignr}${color #FCAF3E}${exec hddtemp /dev/sda -n --unit=C}°C$color
-${goto 6}${font Martin Vogel's Symbols:size=16}j${font}${voffset -4}${goto 32}Fan Speed: ${alignr}${exec sensors | grep 'RPM'| cut -c13-20}
+#${goto 6}${font Martin Vogel's Symbols:size=16}j${font}${voffset -4}${goto 32}Fan Speed: ${alignr}${exec sensors | grep 'RPM'| cut -c13-20}
 ${goto 6}${voffset 4}${font StyleBats:size=16}q${font}${voffset -4}${goto 32}Uptime: ${alignr}${uptime}
 ${goto 6}${voffset 4}${font StyleBats:size=16}k${font}${voffset -4}${goto 32}Processes: ${alignr}$processes ($running_processes running)
 ${goto 7.5}${voffset 4}${font Poky:size=15}a${font}${goto 32}${voffset -10}Highest: ${alignr 13}CPU${alignr}RAM
@@ -86,7 +88,7 @@ ${voffset -1}${goto 32}${top name 3} ${goto 124}${top cpu 3}${alignr }${top mem 
 ${voffset -1}${goto 32}${top name 4} ${goto 124}${top cpu 4}${alignr }${top mem 4}
 
 ${voffset -1}DATE ${hr 2}
-${alignc 35}${font Arial Black:size=26}${time %H:%M}${font}
+${alignc 50}${font Arial Black:size=26}${time %H:%M:%S}${font}
 ${alignc}${time %A %d %B}
 
 ${voffset -1}HD ${hr 2}
@@ -96,7 +98,7 @@ ${goto 3}${voffset 8}${font Poky:size=16}y${font}${goto 29}${voffset -11} Home: 
 ${goto 29} Free: ${fs_free /home}${alignr}${fs_bar 8,60 /home}
 
 ${voffset -1}NETWORK ${hr 2}
-${if_up wlan0} 
+${if_up wlan0}
 ${font Poky:size=14}Y${font}${goto 32}${voffset -8}SSID: ${wireless_essid wlan0}
 ${goto 32}Signal: ${wireless_link_qual wlan0}% ${alignr}${wireless_link_bar 8,60 wlan0}
 ${voffset 4}${font VariShapes Solid:size=14}q${font}${goto 32}${voffset -6}Up: ${upspeed wlan0}${font} ${alignr}${upspeedgraph wlan0 8,60 F57900 FCAF3E}
@@ -122,3 +124,4 @@ ${goto 32}Total: ${totaldown ppp0}
 ${voffset -2}${font Poky:size=13}w${font}${goto 32}${voffset -4}Local IP: ${alignr}${addr ppp0}
 ${endif}${else}${voffset 4}${font PizzaDude Bullets:size=12}4${font}${goto 32}Network Unavailable${endif}${endif}
 ${hr 2}
+
